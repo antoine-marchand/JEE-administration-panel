@@ -1,4 +1,4 @@
-package fr.epf;
+package fr.epf.deadpoules;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
