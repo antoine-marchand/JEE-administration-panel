@@ -1,6 +1,8 @@
 package fr.epf.deadpoules;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private UserDao userDao;
+	private MemberDao memberDao;
 
 	@Override
 	public void init() throws ServletException {
@@ -31,18 +33,18 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		User u = parseUser(request);
+		Member u = parseUser(request);
 
 		request.getSession().setAttribute("user", u);
 
 		incrementLiveUserCount();
 
-		userDao.save(u);
+		memberDao.save(u);
 		response.sendRedirect("dashboard");
 	}
 
-	private User parseUser(HttpServletRequest req) {
-		return new User(req.getParameter("firstName"), req.getParameter("lastName"));
+	private Member parseUser(HttpServletRequest req) {
+		return new Member(req.getParameter("name"), req.getParameter("email"), new Date(4444));
 	}
 	
 	private void incrementLiveUserCount() {

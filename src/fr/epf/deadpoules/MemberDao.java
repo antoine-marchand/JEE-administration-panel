@@ -7,21 +7,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Singleton
-public class UserDao {
+public class MemberDao {
 
 	@PersistenceContext
 	private EntityManager em;
 
-	public void save(User u) {
+	public void save(Member u) {
 		em.persist(u);
 	}
 
-	public User findOne(Long id) {
-		return em.find(User.class, id);
+	public Member findOne(Long id) {
+		return em.find(Member.class, id);
 	}
 
-	public List<User> findAll() {
-		return em.createQuery("SELECT * FROM user").getResultList();
+	public List<Member> findAll() {
+		return em.createQuery("SELECT * FROM member").getResultList();
 	}
 
 }
