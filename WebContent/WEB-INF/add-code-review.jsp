@@ -80,7 +80,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <form action="" method="post" class="">
+                                    <form action="add-code-review" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
                                             <input type="text" class="input-lg form-control" id="name" placeholder="Nom">

@@ -34,8 +34,7 @@ public class AddCodeReviewServlet extends HttpServlet {
 		CodeReview u = parseUser(request);
 		request.getSession().setAttribute("codeReview", u);
 		codeReviewDao.save(u);
-		response.sendRedirect("addCodeReview");
-		doGet(request, response);
+		response.sendRedirect("dashboard");
 	}
 	
 	private CodeReview parseUser(HttpServletRequest req) {
