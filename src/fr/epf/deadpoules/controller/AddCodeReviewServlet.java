@@ -1,6 +1,7 @@
 package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.epf.deadpoules.model.CodeReview;
 import fr.epf.deadpoules.persistence.CodeReviewDao;
 
 @WebServlet("/AddCodeReviewServlet")
@@ -23,11 +25,21 @@ public class AddCodeReviewServlet extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("WEB-INF/addCodeReview.jsp").forward(request, response);
 	}
 	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		CodeReview u = parseUser(request);
+		request.getSession().setAttribute("codeReview", u);
+		codeReviewDao.save(u);
+		response.sendRedirect("addCodeReview");
 		doGet(request, response);
+	}
+	
+	private CodeReview parseUser(HttpServletRequest req) {
+		return new CodeReview(req.getParameter("name"), req.getParameter("description"), new Date(4444));
 	}
 
 }
