@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.epf.deadpoules.model.CodeReview;
 import fr.epf.deadpoules.persistence.CodeReviewDao;
 
-@WebServlet("/AddCodeReviewServlet")
+@WebServlet("/add-code-review")
 public class AddCodeReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -25,7 +25,7 @@ public class AddCodeReviewServlet extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/addCodeReview.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/add-code-review.jsp").forward(request, response);
 	}
 	
 	@Override

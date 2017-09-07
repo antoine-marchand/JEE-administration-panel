@@ -17,7 +17,7 @@ import fr.epf.deadpoules.persistence.MemberDao;
 import fr.epf.deadpoules.persistence.PromotionDao;
 import fr.epf.deadpoules.model.Promotion;
 
-@WebServlet("/addmember")
+@WebServlet("/add-member")
 public class AddMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -28,7 +28,7 @@ public class AddMemberServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("WEB-INF/addmember.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
 
 	}
 	

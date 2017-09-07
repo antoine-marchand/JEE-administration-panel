@@ -2,29 +2,24 @@ package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.epf.deadpoules.persistence.MemberDao;
 
-@WebServlet("/AddClass")
-public class AddClassServlet extends HttpServlet {
+@WebServlet("/add-promotion")
+public class AddPromotionServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
-	@Inject
-	private MemberDao classDao;
-	
 	@Override
 	public void init() throws ServletException {
 		getServletContext().setAttribute("liveUserCount", 0);
 	}
 	
-    public AddClassServlet() {
+    public AddPromotionServlet() {
         super();
     }
 
