@@ -14,9 +14,8 @@
 	<div id="addClass-Container">
 		<h1>Ajoutez une classe</h1>
 		<form action="AddClass" method="POST">
-			<input type="text" name="firstName" placeholder="First Name" /> <br />
-			<input type="text" name="lastName" placeholder="Last Name" /> <br />
-			<input type="submit" class="btn" value="Register" />
+			<input type="text" name="Name" placeholder="Promotion" /> <br />
+			<input type="submit" class="btn" value="Enregister" />
 		</form>
 	</div>
 </body>
