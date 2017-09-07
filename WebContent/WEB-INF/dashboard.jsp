@@ -52,11 +52,11 @@
 						Gérer les code reviews <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="add_promotion.html"><i
+						<li><a href="add-promotion"><i
 								class="fa fa-users fa-fw"></i> Ajouter une promotion</a></li>
-						<li><a href="add_member.html"><i class="fa fa-user fa-fw"></i>
+						<li><a href="add-member"><i class="fa fa-user fa-fw"></i>
 								Ajouter un membre</a></li>
-						<li><a href="add_event.html"><i
+						<li><a href="add-code-review"><i
 								class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a></li>
 					</ul></li>
 			</ul>
@@ -84,7 +84,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="add_promotion.html">
+						<a href="add-promotion">
 							<div class="panel-footer">
 								<span class="pull-left">Ajouter une promotion</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -106,7 +106,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="add_member.html">
+						<a href="add-member">
 							<div class="panel-footer">
 								<span class="pull-left">Ajouter un membre</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -128,7 +128,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="add_event.html">
+						<a href="add-code-review">
 							<div class="panel-footer">
 								<span class="pull-left">Ajouter une code review</span> <span
 									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -224,7 +224,7 @@
 									<td class="text-right"><span class="text-muted small">24/02/2017</span></td>
 								</tr>
 							</table>
-							<a href="#" class="btn btn-default btn-block">Programmer une
+							<a href="add-code-review" class="btn btn-default btn-block">Programmer une
 								code review</a>
 						</div>
 						<!-- /.panel-body -->
@@ -253,7 +253,7 @@
 								</a>
 							</div>
 							<!-- /.list-group -->
-							<a href="#" class="btn btn-default btn-block">Créer une
+							<a href="add-promotion" class="btn btn-default btn-block">Créer une
 								nouvelle promotion</a>
 						</div>
 						<!-- /.panel-body -->
