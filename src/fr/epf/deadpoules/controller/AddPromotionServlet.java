@@ -2,33 +2,40 @@ package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.epf.deadpoules.model.Promotion;
+import fr.epf.deadpoules.persistence.PromotionDao;
+
 
 @WebServlet("/add-promotion")
 public class AddPromotionServlet extends HttpServlet {
 	
-	private static final long serialVersionUID = 1L;
-    
-	@Override
-	public void init() throws ServletException {
-		getServletContext().setAttribute("liveUserCount", 0);
-	}
+	@Inject
+	private PromotionDao promotionDao;
 	
-    public AddPromotionServlet() {
-        super();
-    }
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("WEB-INF/add-promotion.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		Promotion p = parsePromotion(request);
+
+		request.getSession().setAttribute("promotion", p);
+
+		promotionDao.save(p);
+		response.sendRedirect("dashboard");
+	}
+	
+	private Promotion parsePromotion (HttpServletRequest req) {
+		return new Promotion(req.getParameter("name"));
 	}
 
 }
