@@ -1,10 +1,12 @@
-package fr.epf.deadpoules;
+package fr.epf.deadpoules.persistence;
 
 import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import fr.epf.deadpoules.model.Member;
 
 @Singleton
 public class MemberDao {

@@ -1,4 +1,4 @@
-package fr.epf.deadpoules;
+package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

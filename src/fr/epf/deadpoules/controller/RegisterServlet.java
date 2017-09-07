@@ -1,4 +1,4 @@
-package fr.epf.deadpoules;
+package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
 import java.util.Date;
@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.epf.deadpoules.model.Member;
+import fr.epf.deadpoules.persistence.MemberDao;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
