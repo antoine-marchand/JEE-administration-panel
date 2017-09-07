@@ -239,10 +239,10 @@
 						<div class="panel-body">
 							<div class="list-group">
 
-								<c:forEach items="${classes}" var="class">
+								<c:forEach items="${promotions}" var="promotion">
 									<a href="#" class="list-group-item"> <i
-										class="fa fa-users fa-fw"></i> ${class.name}<span
-										class="pull-right text-muted small"><em>${fn:length(class.members)}</em>
+										class="fa fa-users fa-fw"></i> ${promotion.name}<span
+										class="pull-right text-muted small"><em>${fn:length(promotion.members)}</em>
 									</span>
 									</a>
 								</c:forEach>

@@ -16,7 +16,7 @@ public class Member {
 	private String name;
 	private String email;
 	private Date birthdate;
-	
+
 	@ManyToOne
 	private Promotion promotion;
 
@@ -24,11 +24,11 @@ public class Member {
 		super();
 		this.name = name;
 		this.email = email;
-		this.birthdate = birthdate;	
+		this.birthdate = birthdate;
 		this.promotion = promotion;
 	}
 
-public String getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -52,7 +52,7 @@ public String getName() {
 		this.birthdate = birthdate;
 	}
 
-		public Long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -60,4 +60,11 @@ public String getName() {
 		this.id = id;
 	}
 
+	public Promotion getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
 }

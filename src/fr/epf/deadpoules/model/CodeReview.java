@@ -61,5 +61,11 @@ public class CodeReview {
 		this.datetime = datetime;
 	}	
 	
+	public Promotion getPromotion() {
+		return promotion;
+	}
 
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
 }
