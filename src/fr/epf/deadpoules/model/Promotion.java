@@ -14,6 +14,7 @@ public class Promotion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String name;
 	
 	@OneToMany(mappedBy="promotion")

@@ -1,5 +1,6 @@
 package fr.epf.deadpoules.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -16,12 +17,12 @@ public class CodeReview {
 	private Long id;
 	private String name;
 	private String description;
-	private Date datetime;
+	private LocalDate datetime;
 	
 	@ManyToOne
 	private Promotion promotion;
 	
-	public CodeReview(String name, String description, Date datetime, Promotion promotion) {
+	public CodeReview(String name, String description, LocalDate datetime, Promotion promotion) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -53,11 +54,11 @@ public class CodeReview {
 		this.description = description;
 	}
 
-	public Date getDatetime() {
+	public LocalDate getDatetime() {
 		return datetime;
 	}
 
-	public void setDatetime(Date datetime) {
+	public void setDatetime(LocalDate datetime) {
 		this.datetime = datetime;
 	}	
 	

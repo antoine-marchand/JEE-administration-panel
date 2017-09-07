@@ -1,5 +1,6 @@
 package fr.epf.deadpoules.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,12 +16,14 @@ public class Member {
 	private Long id;
 	private String name;
 	private String email;
-	private Date birthdate;
+	private LocalDate birthdate;
 
 	@ManyToOne
 	private Promotion promotion;
 
-	public Member(String name, String email, Date birthdate, Promotion promotion) {
+	public Member() {}
+	
+	public Member(String name, String email, LocalDate birthdate, Promotion promotion) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -44,11 +47,11 @@ public class Member {
 		this.email = email;
 	}
 
-	public Date getBirthdate() {
+	public LocalDate getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
+	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
 	}
 
