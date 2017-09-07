@@ -44,9 +44,9 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="add_promotion"><i class="fa fa-users fa-fw"></i> Ajouter une promotion</a>
                         </li>
-                        <li><a href="add_member"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
+                        <li><a href="add-member"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
                         </li>
-                        <li><a href="add_event"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
+                        <li><a href="add-code-review"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
                         </li>
                     </ul>
                 </li>
