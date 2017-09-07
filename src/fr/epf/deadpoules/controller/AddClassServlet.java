@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.epf.deadpoules.persistence.MemberDao;
 
 @WebServlet("/AddClass")
-public class AddClass extends HttpServlet {
+public class AddClassServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
@@ -24,7 +24,7 @@ public class AddClass extends HttpServlet {
 		getServletContext().setAttribute("liveUserCount", 0);
 	}
 	
-    public AddClass() {
+    public AddClassServlet() {
         super();
     }
 
