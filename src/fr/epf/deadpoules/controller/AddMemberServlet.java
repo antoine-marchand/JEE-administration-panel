@@ -1,6 +1,8 @@
 package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 //import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +30,10 @@ public class AddMemberServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 
+		request.getSession().setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
+		
 
 	}
 	
@@ -46,17 +51,17 @@ public class AddMemberServlet extends HttpServlet {
 
 	private Member parseMember(HttpServletRequest req) {
 		
-//		String param = req.getParameter("birthdate");
-//		SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
-//		Date birthdate = new Date();
-//		
+		String param = req.getParameter("birthdate");
+		SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+		Date birthdate = new Date();
+	
 //		Utilisez LocalDate
 		
-//		try {
-//			birthdate = date.parse(param);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			birthdate = date.parse(param);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		String promParam = req.getParameter("promotion");
 		Promotion promotion = promotionDao.findByName(promParam);

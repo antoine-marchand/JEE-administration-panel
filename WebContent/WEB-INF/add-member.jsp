@@ -10,10 +10,10 @@
     <title>When Is My Code Review?</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">When Is My Code Review?</a>
+                <a class="navbar-brand" href="dashboard">When Is My Code Review?</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -42,11 +42,11 @@
                         <i class="fa fa-gear fa-fw"></i> Gérer les code reviews <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="add_promotion.html"><i class="fa fa-users fa-fw"></i> Ajouter une promotion</a>
+                        <li><a href="add-promotion"><i class="fa fa-users fa-fw"></i> Ajouter une promotion</a>
                         </li>
-                        <li><a href="add_member.html"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
+                        <li><a href="add-member"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
                         </li>
-                        <li><a href="add_event.html"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
+                        <li><a href="add-code-review"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
                         </li>
                     </ul>
                 </li>
@@ -68,7 +68,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <form action="" method="post" class="">
+                                    <form action="add-member" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
                                             <input type="text" class="input-lg form-control" id="name" placeholder="Nom">
@@ -80,8 +80,9 @@
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" id="promotion">
-                                                <option>Février</option>
-                                                <option>Mars</option>
+                                                <c:forEach items="${promotions}" var="promotion">
+														<option>${promotion.name}</option>
+												</c:forEach>
                                             </select>
                                         </div>
 
@@ -108,16 +109,16 @@
     <footer class="footer">
         <div class="container">
             <div class="row text-center">
-                <img src="../img/ebusiness.png" class="logo" alt=""> &bullet; 2017
+                <img src="img/ebusiness.png" class="logo" alt=""> &bullet; 2017
             </div>
         </div>
     </footer>
 
     <!-- jQuery -->
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 
