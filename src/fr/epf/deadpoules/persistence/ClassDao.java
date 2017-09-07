@@ -1,4 +1,4 @@
-package fr.epf.deadpoules;
+package fr.epf.deadpoules.persistence;
 
 import java.util.List;
 

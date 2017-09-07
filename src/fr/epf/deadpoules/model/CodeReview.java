@@ -1,4 +1,4 @@
-package fr.epf.deadpoules;
+package fr.epf.deadpoules.model;
 
 import java.util.Date;
 
