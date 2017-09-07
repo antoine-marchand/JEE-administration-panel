@@ -39,7 +39,7 @@ public class AddCodeReviewServlet extends HttpServlet {
 	}
 	
 	private CodeReview parseUser(HttpServletRequest req) {
-		return new CodeReview(req.getParameter("name"), req.getParameter("description"), new Date(4444));
+		return new CodeReview(req.getParameter("name"), req.getParameter("description"), new Date(4444), null);
 
 	}
 
