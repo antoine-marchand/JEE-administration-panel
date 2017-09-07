@@ -1,4 +1,4 @@
-/build/
+build/**
 .classpath
 .settings/
-/src/META-INF/persistence.xml
+src/META-INF/persistence.xml
