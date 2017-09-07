@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class CodeReview {
@@ -17,15 +18,15 @@ public class CodeReview {
 	private String description;
 	private Date datetime;
 	
-	public CodeReview(String name, String description, Date datetime) {
+	@ManyToOne
+	private Promotion promotion;
+	
+	public CodeReview(String name, String description, Date datetime, Promotion promotion) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.datetime = datetime;
-	}
-
-	public CodeReview() {
-		super();
+		this.promotion = promotion;
 	}
 
 	public Long getId() {

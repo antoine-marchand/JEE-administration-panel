@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Member {
@@ -15,15 +16,16 @@ public class Member {
 	private String name;
 	private String email;
 	private Date birthdate;
+	
+	@ManyToOne
+	private Promotion promotion;
 
-	public Member() {
-	}	
-
-	public Member(String name, String email, Date birthdate) {
+	public Member(String name, String email, Date birthdate, Promotion promotion) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.birthdate = birthdate;	
+		this.promotion = promotion;
 	}
 
 public String getName() {

@@ -1,6 +1,6 @@
 package fr.epf.deadpoules.persistence;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
@@ -22,8 +22,8 @@ public class CodeReviewDao {
 		return em.find(CodeReview.class, id);
 	}
 
-	public List<CodeReview> findAll() {
-		return em.createQuery("SELECT * FROM codeReview").getResultList();
-	}
+//	public List<CodeReview> findAll() {
+//		return em.createQuery("SELECT * FROM codeReview").getResultList();
+//	}
 
 }

@@ -1,6 +1,6 @@
 package fr.epf.deadpoules.persistence;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
@@ -22,8 +22,8 @@ public class MemberDao {
 		return em.find(Member.class, id);
 	}
 
-	public List<Member> findAll() {
-		return em.createQuery("SELECT * FROM member").getResultList();
-	}
+//	public List<Member> findAll() {
+//		return em.createQuery("SELECT * FROM member").getResultList();
+//	}
 
 }

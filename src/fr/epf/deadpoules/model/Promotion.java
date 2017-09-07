@@ -6,34 +6,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Class {
+public class Promotion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	
+	@OneToMany(mappedBy="promotion")
 	private List<Member> members;
+	
+	@OneToMany(mappedBy="promotion")
 	private List<CodeReview> codeReviews;
 	
+//	public Promotion(String name, List<Member> members, List<CodeReview> codeReviews) {
+//		this.name = name;
+//		this.members = members;
+//		this.codeReviews = codeReviews;
+//	}
 	
-	public Class(String name) {
-		super();
+	public Promotion(String name) {
 		this.name = name;
 	}
-
-
-	public Class() {
-		super();
-	}
-
 
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
@@ -68,8 +69,6 @@ public class Class {
 	public void setCodeReviews(List<CodeReview> codeReviews) {
 		this.codeReviews = codeReviews;
 	}
-	
-	
 	
 	
 	
