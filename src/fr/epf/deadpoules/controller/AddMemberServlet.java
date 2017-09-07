@@ -31,7 +31,7 @@ public class AddMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 
-		request.getSession().setAttribute("promotions", promotionDao.findAll());
+//		request.getSession().setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
 		
 

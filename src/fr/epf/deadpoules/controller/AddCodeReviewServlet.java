@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.epf.deadpoules.model.CodeReview;
 import fr.epf.deadpoules.persistence.CodeReviewDao;
+import fr.epf.deadpoules.persistence.PromotionDao;
 
 @WebServlet("/add-code-review")
 public class AddCodeReviewServlet extends HttpServlet {
@@ -19,12 +20,14 @@ public class AddCodeReviewServlet extends HttpServlet {
        
 	@Inject
 	private CodeReviewDao codeReviewDao;
+	private PromotionDao promotionDao;
 	
     public AddCodeReviewServlet() {
         super();
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.getSession().setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-code-review.jsp").forward(request, response);
 	}
 	

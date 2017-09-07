@@ -26,15 +26,25 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="WebContent//bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+<script type="text/javascript"
+	src="bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 </head>
-
-
-
 <body>
 
-    <div id="wrapper">
+	<div id="wrapper">
 
-        <!-- Navigation -->
+		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-static-top container-fluid"
 			role="navigation" style="margin-bottom: 0">
 			<div class="navbar-header">
@@ -44,8 +54,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="dashboard">When Is My Code
-					Review?</a>
+				<a class="navbar-brand" href="dashboard">When Is My Code Review?</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -55,8 +64,8 @@
 						Gérer les code reviews <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="add-promotion"><i
-								class="fa fa-users fa-fw"></i> Ajouter une promotion</a></li>
+						<li><a href="add-promotion"><i class="fa fa-users fa-fw"></i>
+								Ajouter une promotion</a></li>
 						<li><a href="add-member"><i class="fa fa-user fa-fw"></i>
 								Ajouter un membre</a></li>
 						<li><a href="add-code-review"><i
@@ -65,62 +74,70 @@
 			</ul>
 		</nav>
 
-        <div id="page-wrapper" class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Ajouter une code review</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <form action="add-code-review" method="post" class="">
-                                        <div class="form-group">
-                                            <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" placeholder="Nom">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="description">Description</label>
-                                            <input type="text" class="input-lg form-control" id="description" placeholder="Description">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="date">Date</label>
-                                            <input type="datetime" class="input-lg form-control" id="date" placeholder="Date de l'évènement">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="promotion">Promotion</label>
-                                            <select class="input-lg form-control" id="promotion">
-                                                <c:forEach items="${codeReviews}" var="codeReview">
-                                                	<option>${codeReview.name}</option>
-                                            	</c:forEach>
-                                            </select>
-                                        </div>
+		<div id="page-wrapper" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">Ajouter une code review</h1>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1">
+					<!-- /.panel -->
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-12">
+									<form action="add-code-review" method="post" class="">
+										<div class="form-group">
+											<label for="name">Nom</label> <input type="text"
+												class="input-lg form-control" id="name" placeholder="Nom">
+										</div>
+										<div class="form-group">
+											<label for="description">Description</label> <input
+												type="text" class="input-lg form-control" id="description"
+												placeholder="Description">
+										</div>
+										<div class="form-group">
+											<label for="date">Date</label> <input type='text'
+												id='datetimepicker1' class="input-lg form-control"
+												placeholder="Date de l'évènement" /> 
+										</div>
+										<script type="text/javascript">
+											$(function() {
+												$('#datetimepicker1')
+														.datetimepicker();
+											});
+										</script>
+										<div class="form-group">
+											<label for="promotion">Promotion</label> <select
+												class="input-lg form-control" id="promotion">
+												<c:forEach items="${promotions}" var="promotion">
+													<option>${promotion.name}</option>
+												</c:forEach>
+											</select>
+										</div>
 
-                                        <div class="text-right">
-                                            <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+										<div class="text-right">
+											<button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
 
-   </div>
+	</div>
 	<!-- /#wrapper -->
 	<footer class="footer">
 		<div class="container">
