@@ -76,15 +76,19 @@
                                     <form action="add-member" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" placeholder="Nom">
+                                            <input name = "name" type="text" class="input-lg form-control" id="name" placeholder="Nom">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Adresse Email</label>
-                                            <input type="email" class="input-lg form-control" id="email" placeholder="Adresse Email">
+                                            <input name = "email" type="email" class="input-lg form-control" id="email" placeholder="Adresse Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="birthdate">Date d'anniversaire</label>
+                                            <input name = "birthdate" type="text" class="input-lg form-control" id="birthdate" placeholder="Date d'anniversaire">
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
-                                            <select class="input-lg form-control" id="promotion">
+                                            <select name = "promotion" class="input-lg form-control" id="promotion">
                                                 <c:forEach items="${promotions}" var="promotion">
 														<option>${promotion.name}</option>
 												</c:forEach>
