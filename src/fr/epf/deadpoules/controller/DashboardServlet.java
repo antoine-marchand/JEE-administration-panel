@@ -34,6 +34,7 @@ public class DashboardServlet extends HttpServlet {
 		
 //		request.setAttribute("members", memberDao.findAll());
 		request.setAttribute("promotions", promotionDao.findAll());
+		request.setAttribute("numberPromotions", promotionDao.count());
 //		request.setAttribute("codeReviews",codeReviewDao.findAll());
 		
 		request.getRequestDispatcher("WEB-INF/dashboard.jsp").forward(request, response);
