@@ -29,6 +29,10 @@ public class CodeReviewDao {
 	public CodeReview findOne(Long id) {
 		return em.find(CodeReview.class, id);
 	}
+	
+	public long count() {
+		 return (long)em.createQuery("SELECT COUNT(*) FROM CodeReview").getSingleResult();
+		}
 
 	public List<CodeReview> findAll() {
 

@@ -30,6 +30,11 @@ public class MemberDao {
 		return em.find(Member.class, id);
 	}
 	
+	public long count() {
+		 return (long)em.createQuery("SELECT COUNT(*) FROM Member").getSingleResult();
+		}
+	
+	
 	public List<Member> findAll() {
 		List<Member> members = new ArrayList<>();
 		List<Object> result = (List<Object>) em.createQuery("SELECT id,name,email,birthdate FROM Member")

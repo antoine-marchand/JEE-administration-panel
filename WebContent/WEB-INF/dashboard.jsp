@@ -101,7 +101,7 @@
 									<i class="fa fa-user fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">46</div>
+									<div class="huge">${numberMembers}</div>
 									<div class="huge-label">Membres inscrits</div>
 								</div>
 							</div>
@@ -123,7 +123,7 @@
 									<i class="fa fa-calendar fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">3</div>
+									<div class="huge">${numberCodeReviews}</div>
 									<div class="huge-label">Code reviews programmées</div>
 								</div>
 							</div>
