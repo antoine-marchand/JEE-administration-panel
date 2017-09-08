@@ -41,8 +41,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="dashboard">When Is My Code
-					Review?</a>
+				<a class="navbar-brand" href="dashboard">When Is My Code Review?</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -52,8 +51,8 @@
 						Gérer les code reviews <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="add-promotion"><i
-								class="fa fa-users fa-fw"></i> Ajouter une promotion</a></li>
+						<li><a href="add-promotion"><i class="fa fa-users fa-fw"></i>
+								Ajouter une promotion</a></li>
 						<li><a href="add-member"><i class="fa fa-user fa-fw"></i>
 								Ajouter un membre</a></li>
 						<li><a href="add-code-review"><i
@@ -168,9 +167,11 @@
 														<td>${birthdate}</td>
 														<td class="text-right"><a href="#"
 															class="btn btn-sm btn-warning"><i
-																class="fa fa-pencil"></i> Modifier</a> <a href="#"
-															class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
-																Supprimer</a></td>
+																class="fa fa-pencil"></i> Modifier</a>
+															<button type="button" class="btn btn-sm btn-danger"
+																data-toggle="modal" data-target="modalSupprimer">
+																<i class="fa fa-trash">Supprimer 
+															</button></td>
 													</tr>
 												</c:forEach>
 												<tr>
@@ -179,8 +180,11 @@
 													<td>birthdateSample</td>
 													<td class="text-right"><a href="#"
 														class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>
-															Modifier</a> <a href="#" class="btn btn-sm btn-danger"><i
-															class="fa fa-trash"></i> Supprimer</a></td>
+															Modifier</a>
+														<button type="button" class="btn btn-sm btn-danger"
+															data-toggle="modal" data-target="modalSupprimer">
+															<i class="fa fa-trash">Supprimer 
+														</button></td>
 												</tr>
 											</tbody>
 										</table>
@@ -224,8 +228,8 @@
 									<td class="text-right"><span class="text-muted small">24/02/2017</span></td>
 								</tr>
 							</table>
-							<a href="add-code-review" class="btn btn-default btn-block">Programmer une
-								code review</a>
+							<a href="add-code-review" class="btn btn-default btn-block">Programmer
+								une code review</a>
 						</div>
 						<!-- /.panel-body -->
 					</div>
@@ -242,8 +246,8 @@
 								<c:forEach items="${promotions}" var="promotion">
 									<a href="#" class="list-group-item"> <i
 										class="fa fa-users fa-fw"></i> ${promotion.name}<span
-										class="pull-right text-muted small"><em>${fn:length(promotion.members)} membres</em>
-									</span>
+										class="pull-right text-muted small"><em>${fn:length(promotion.members)}
+												membres</em> </span>
 									</a>
 								</c:forEach>
 
@@ -253,8 +257,8 @@
 								</a>
 							</div>
 							<!-- /.list-group -->
-							<a href="add-promotion" class="btn btn-default btn-block">Créer une
-								nouvelle promotion</a>
+							<a href="add-promotion" class="btn btn-default btn-block">Créer
+								une nouvelle promotion</a>
 						</div>
 						<!-- /.panel-body -->
 					</div>
@@ -267,6 +271,36 @@
 		<!-- /#page-wrapper -->
 
 	</div>
+
+
+
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalSupprimer" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Supprimer un membre</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Voulez vous vraiment supprimer ce membre</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Oui</button>
+					<button type="button" class="btn btn-primary">Non</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
 	<!-- /#wrapper -->
 	<footer class="footer">
 		<div class="container">
