@@ -54,4 +54,7 @@ public class MemberDao {
 		}
 		return members;
 	}
+	public Member update (Member updateMember) {
+	    return em.merge(updateMember);
+	}
 }
