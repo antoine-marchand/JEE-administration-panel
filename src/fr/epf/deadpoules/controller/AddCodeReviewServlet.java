@@ -34,21 +34,23 @@ public class AddCodeReviewServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CodeReview cr = parseUser(request);
+		CodeReview cr = parseCodeReview(request);
 		request.setAttribute("codeReview", cr);
 		codeReviewDao.save(cr);
 		response.sendRedirect("dashboard");
 	}
 	
-	private CodeReview parseUser(HttpServletRequest req) {
+	private CodeReview parseCodeReview(HttpServletRequest req) {
 		
 		String param = req.getParameter("date");
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate date;
 		date = LocalDate.parse(param, format);
 		
-		Long promParam = Long.valueOf(req.getParameter("promotion"));
-		Promotion promotion = promotionDao.findOne(promParam);
+		
+		Promotion promotion = promotionDao.findByName(String.valueOf(req.getParameter("promotion")));
+//		Long promParam = Long.valueOf(req.getParameter("promotion"));
+//		Promotion promotion = promotionDao.findOne(promParam);
 		
 		return new CodeReview(req.getParameter("name"), req.getParameter("description"), date, promotion);
 

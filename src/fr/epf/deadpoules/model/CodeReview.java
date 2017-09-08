@@ -22,6 +22,8 @@ public class CodeReview {
 	@ManyToOne
 	private Promotion promotion;
 	
+	public CodeReview() {}
+	
 	public CodeReview(String name, String description, LocalDate datetime, Promotion promotion) {
 		super();
 		this.name = name;

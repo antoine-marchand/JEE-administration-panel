@@ -25,7 +25,7 @@ public class PromotionDao {
 	}
 
 	public Promotion findByName(String name) {
-		return em.find(Promotion.class, name);
+		return (Promotion)em.createQuery("FROM Promotion WHERE name='" + name + "'").getResultList().get(0);
 	}
 
 	public long count() {
@@ -39,11 +39,9 @@ public class PromotionDao {
 
 		while (itr.hasNext()) {
 			Object[] obj = (Object[]) itr.next();
-			// now you have one array of Object for each row
 			Long id = Long.parseLong(String.valueOf(obj[0]));
-			String name = String.valueOf(obj[1]); // don't know the type of column CLIENT assuming String
+			String name = String.valueOf(obj[1]);
 			promotions.add(new Promotion(name));
-			System.out.println("TAGGG" + name);
 		}
 
 		return promotions;

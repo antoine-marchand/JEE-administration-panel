@@ -23,11 +23,7 @@ public class Promotion {
 	@OneToMany(mappedBy="promotion")
 	private List<CodeReview> codeReviews;
 	
-//	public Promotion(String name, List<Member> members, List<CodeReview> codeReviews) {
-//		this.name = name;
-//		this.members = members;
-//		this.codeReviews = codeReviews;
-//	}
+	public Promotion() {}
 	
 	public Promotion(String name) {
 		this.name = name;
@@ -40,7 +36,6 @@ public class Promotion {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -70,8 +65,4 @@ public class Promotion {
 	public void setCodeReviews(List<CodeReview> codeReviews) {
 		this.codeReviews = codeReviews;
 	}
-	
-	
-	
-	
 }

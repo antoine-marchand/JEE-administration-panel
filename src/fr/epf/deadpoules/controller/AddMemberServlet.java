@@ -37,11 +37,11 @@ public class AddMemberServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Member u = parseMember(request);
+		Member member = parseMember(request);
 
-		request.getSession().setAttribute("member", u);
+		request.getSession().setAttribute("member", member);
 
-		memberDao.save(u);
+		memberDao.save(member);
 		response.sendRedirect("dashboard");
 	}
 
@@ -52,9 +52,9 @@ public class AddMemberServlet extends HttpServlet {
 		LocalDate birthdate;
 		birthdate = LocalDate.parse(param, format);
 		
-		
-		Long promParam = Long.valueOf(req.getParameter("promotion"));
-		Promotion promotion = promotionDao.findOne(promParam);
+		Promotion promotion = promotionDao.findByName(String.valueOf(req.getParameter("promotion")));
+//		Long promParam = Long.valueOf(req.getParameter("promotion"));
+//		Promotion promotion = promotionDao.findOne(promParam);
 				
 		return new Member(req.getParameter("name"), req.getParameter("email"), birthdate, promotion);
 	}

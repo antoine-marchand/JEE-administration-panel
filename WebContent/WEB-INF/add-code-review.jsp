@@ -91,17 +91,17 @@
 								<div class="col-xs-12">
 									<form action="add-code-review" method="post" class="">
 										<div class="form-group">
-											<label for="name">Nom</label> <input type="text"
+											<label for="name">Nom</label> <input type="text" name="name"
 												class="input-lg form-control" id="name" placeholder="Nom">
 										</div>
 										<div class="form-group">
 											<label for="description">Description</label> <input
-												type="text" class="input-lg form-control" id="description"
+												type="text" class="input-lg form-control" id="description" name="description"
 												placeholder="Description">
 										</div>
 										<div class="form-group">
-											<label for="date">Date</label> <input type='date'
-												id='datepicker' class="input-lg form-control"
+											<label for="date">Date</label> <input type='text' name="date"
+												id='datetimepicker1' class="input-lg form-control"
 												placeholder="Date de l'évènement" /> 
 										</div>
 										<script type="text/javascript">
@@ -110,7 +110,7 @@
 										  } );
 										</script>
 										<div class="form-group">
-											<label for="promotion">Promotion</label> <select
+											<label for="promotion">Promotion</label> <select name="promotion"
 												class="input-lg form-control" id="promotion">
 												<c:forEach items="${promotions}" var="promotion">
 													<option>${promotion.name}</option>
