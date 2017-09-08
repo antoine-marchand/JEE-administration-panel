@@ -16,6 +16,8 @@ public class Promotion {
 	private Long id;
 	private String name;
 	
+	private int numMembers;
+	
 	@OneToMany(mappedBy="promotion")
 	private List<Member> members;
 	
@@ -64,4 +66,14 @@ public class Promotion {
 	public void setCodeReviews(List<CodeReview> codeReviews) {
 		this.codeReviews = codeReviews;
 	}
+
+	public int getNumMembers() {
+		return numMembers;
+	}
+
+	public void setNumMembers(int numMembers) {
+		this.numMembers = numMembers;
+	}
+	
+	
 }

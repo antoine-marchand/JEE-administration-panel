@@ -223,11 +223,6 @@
 										</tr>
 									</c:forEach>
 								</tbody>
-								<tr>
-									<td>Code review 1</td>
-									<td>Date sample</td>
-									<td class="text-right"><span class="text-muted small">24/02/2017</span></td>
-								</tr>
 							</table>
 							<a href="add-code-review" class="btn btn-default btn-block">Programmer
 								une code review</a>
@@ -248,15 +243,10 @@
 									varStatus="loop">
 									<a href="#" class="list-group-item"> <i
 										class="fa fa-users fa-fw"></i> ${promotion.name}<span
-										class="pull-right text-muted small"><em>${numberMembersPromotion[loop.index]}
+										class="pull-right text-muted small"><em>${promotion.numMembers}
 												membres</em> </span>
 									</a>
 								</c:forEach>
-
-								<a href="#" class="list-group-item"> <i
-									class="fa fa-users fa-fw"></i> Promo Février <span
-									class="pull-right text-muted small"><em>8 membres</em> </span>
-								</a>
 							</div>
 							<!-- /.list-group -->
 							<a href="add-promotion" class="btn btn-default btn-block">Créer
