@@ -31,6 +31,13 @@ public class PromotionDao {
 	public long count() {
 	 return (long)em.createQuery("SELECT COUNT(*) FROM Promotion").getSingleResult();
 	}
+	
+	public List<Integer> countMembers() {
+		
+		List<Integer> listCountMembers;
+		listCountMembers = em.createQuery("SELECT COUNT(*) FROM Member GROUP BY promotion_id").getResultList();
+		return listCountMembers;
+		}
 
 	public List<Promotion> findAll() {
 		List<Promotion> promotions = new ArrayList<>();

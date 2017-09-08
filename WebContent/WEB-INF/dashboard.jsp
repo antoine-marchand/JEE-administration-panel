@@ -165,17 +165,13 @@
 														<td>${member.name}</td>
 														<td>${member.email}</td>
 														<td>${member.birthdate}</td>
-														<td class="text-right">
-															<form action="edit-member">
-																<input type="hidden" name="memberId"
-																	value="${member.id}" /> <input type="submit"
-																	class="btn btn-sm btn-warning" value="Modifier" />
-															</form>
+														<td class="text-right"><a href="#"
+															class="btn btn-sm btn-warning"><i
+																class="fa fa-pencil"></i> Modifier</a>
 															<button type="button" class="btn btn-sm btn-danger"
 																data-toggle="modal" data-target="modalSupprimer">
 																<i class="fa fa-trash">Supprimer 
-															</button>
-														</td>
+															</button></td>
 													</tr>
 												</c:forEach>
 												<tr>
@@ -247,10 +243,10 @@
 						<div class="panel-body">
 							<div class="list-group">
 
-								<c:forEach items="${promotions}" var="promotion">
+								<c:forEach items="${promotions}" var="promotion" varStatus="loop">
 									<a href="#" class="list-group-item"> <i
 										class="fa fa-users fa-fw"></i> ${promotion.name}<span
-										class="pull-right text-muted small"><em>${fn:length(promotion.members)}
+										class="pull-right text-muted small"><em>${numberMembersPromotion[loop.index]}
 												membres</em> </span>
 									</a>
 								</c:forEach>
