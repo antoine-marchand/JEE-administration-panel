@@ -29,7 +29,7 @@ public class EditMemberServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Long memberId = Long.valueOf(request.getParameter("id"));
+		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		request.setAttribute("member", memberDao.findOne(memberId));
 		request.setAttribute("promotions", promotionDao.findAll());
 		
@@ -38,33 +38,33 @@ public class EditMemberServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		editMember(request);
+		Member newMember = editMember(request);
+		memberDao.update(newMember);
+		
 		response.sendRedirect("dashboard");
 		
 	}
 
-	private void editMember(HttpServletRequest request) {
+	private Member editMember(HttpServletRequest request) {
 		
-		Long memberId = Long.valueOf(request.getParameter("member.id"));
+		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member oldMember = memberDao.findOne(memberId);
 		
-		oldMember.setName(request.getParameter("member.name"));
-		oldMember.setEmail(request.getParameter("member.email"));
+		oldMember.setName(request.getParameter("name"));
+		oldMember.setEmail(request.getParameter("email"));
 		
-		String param = request.getParameter("member.birthdate");
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String param = request.getParameter("birthdate");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate birthdate;
 		birthdate = LocalDate.parse(param, format);
 		
 		oldMember.setBirthdate(birthdate);
 		
+		Promotion promotion = promotionDao.findByName(String.valueOf(request.getParameter("promotion")));
+
+		oldMember.setPromotion(promotion);
 		
-//		Va changer avec findByName
-		Long promParam = Long.valueOf(request.getParameter("member.promotion"));
-		Promotion promotion = promotionDao.findOne(promParam);
-//		!!
-		
-		oldMember.setPromotion(promotion);	
+		return oldMember;
 	}
 	
 }

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Member</title>
+    <title>When Is My Code Review?</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +61,7 @@
         <div id="page-wrapper" class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Editer un membre</h1>
+                    <h1 class="page-header">Modifier un membre</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -71,17 +76,22 @@
                                     <form action="edit-member" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" placeholder="${member.name}">
+                                            <input name = "name" type="text" class="input-lg form-control" id="name" placeholder="${member.name}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Adresse Email</label>
-                                            <input type="email" class="input-lg form-control" id="email" placeholder="${member.mail}">
+                                            <input name = "email" type="email" class="input-lg form-control" id="email" placeholder="${member.email}">
                                         </div>
                                         <div class="form-group">
+                                            <label for="birthdate">Date d'anniversaire</label>
+                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" placeholder="${member.birthdate}">
+                                        </div>
+                                        <input type="hidden" name="memberId" value="${member.id}" />
+                                        <div class="form-group">
                                             <label for="promotion">Promotion</label>
-                                            <select class="input-lg form-control" id="promotion">
+                                            <select name = "promotion" class="input-lg form-control" id="promotion">
                                                 <c:forEach items="${promotions}" var="promotion">
-														<option>${promotion.name}</option>
+														<option value="${promotion}" ${promotion == member.promotion ? 'selected' : ''}>${promotion.name}</option>
 												</c:forEach>
                                             </select>
                                         </div>

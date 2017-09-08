@@ -162,16 +162,20 @@
 											<tbody>
 												<c:forEach items="${members}" var="member">
 													<tr>
-														<td>${name}</td>
-														<td>${email}</td>
-														<td>${birthdate}</td>
-														<td class="text-right"><a href="#"
-															class="btn btn-sm btn-warning"><i
-																class="fa fa-pencil"></i> Modifier</a>
+														<td>${member.name}</td>
+														<td>${member.email}</td>
+														<td>${member.birthdate}</td>
+														<td class="text-right">
+															<form action="edit-member">
+																<input type="hidden" name="memberId"
+																	value="${member.id}" /> <input type="submit"
+																	class="btn btn-sm btn-warning" value="Modifier" />
+															</form>
 															<button type="button" class="btn btn-sm btn-danger"
 																data-toggle="modal" data-target="modalSupprimer">
 																<i class="fa fa-trash">Supprimer 
-															</button></td>
+															</button>
+														</td>
 													</tr>
 												</c:forEach>
 												<tr>
@@ -283,13 +287,15 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Supprimer un membre</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Supprimer un
+						membre</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">Voulez vous vraiment supprimer ce membre</div>
+				<div class="modal-body">Voulez vous vraiment supprimer ce
+					membre</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Oui</button>
@@ -298,9 +304,9 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
+
+
+
 	<!-- /#wrapper -->
 	<footer class="footer">
 		<div class="container">
