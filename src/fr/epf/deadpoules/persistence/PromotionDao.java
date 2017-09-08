@@ -28,9 +28,9 @@ public class PromotionDao {
 		return em.find(Promotion.class, name);
 	}
 
-	// public long count() {
-	// return (long) em.createQuery("SELECT COUNT(*) FROM TABLE");
-	// }
+	public long count() {
+	 return (long)em.createQuery("SELECT COUNT(*) FROM Promotion").getSingleResult();
+	}
 
 	public List<Promotion> findAll() {
 		List<Promotion> promotions = new ArrayList<>();
