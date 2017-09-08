@@ -1,13 +1,15 @@
 package fr.epf.deadpoules.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
+
+import com.sun.istack.internal.NotNull;
 
 @Entity
 public class CodeReview {
@@ -15,10 +17,18 @@ public class CodeReview {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@NotNull
 	private String name;
+	
+	@NotNull
 	private String description;
+	
+	@NotNull
+	@Future
 	private LocalDate datetime;
 	
+	@NotNull
 	@ManyToOne
 	private Promotion promotion;
 	
