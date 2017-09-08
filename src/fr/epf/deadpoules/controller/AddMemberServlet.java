@@ -23,14 +23,13 @@ public class AddMemberServlet extends HttpServlet {
 	@Inject
 	private MemberDao memberDao;
 	
+	@Inject
 	private PromotionDao promotionDao;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 
-		request.getSession().setAttribute("promotions", promotionDao.findAll());
+		request.setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
-		
 
 	}
 	

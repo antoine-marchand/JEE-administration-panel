@@ -1,6 +1,7 @@
 package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ public class AddCodeReviewServlet extends HttpServlet {
 	}
 	
 	private CodeReview parseUser(HttpServletRequest req) {
-		return new CodeReview(req.getParameter("name"), req.getParameter("description"), new Date(4444), null);
+		return new CodeReview(req.getParameter("name"), req.getParameter("description"), LocalDate.parse("15-12-2017"), null);
 
 	}
 
