@@ -38,7 +38,12 @@ public class MemberDao {
 	public List<Member> findAll() {
 		return em.createQuery("FROM Member").getResultList();
 	}
+	
 	public Member update (Member updateMember) {
 	    return em.merge(updateMember);
+	}
+	
+	public void delete (Member updateMember) {
+	    em.remove(updateMember);
 	}
 }

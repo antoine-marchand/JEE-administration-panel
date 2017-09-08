@@ -155,7 +155,7 @@
 												<tr>
 													<th>Nom</th>
 													<th>Email</th>
-													<th>Promotion</th>
+													<th>Birthdate</th>
 													<th class="text-right">Action</th>
 												</tr>
 											</thead>
@@ -165,27 +165,20 @@
 														<td>${member.name}</td>
 														<td>${member.email}</td>
 														<td>${member.birthdate}</td>
-														<td class="text-right"><a href="#"
-															class="btn btn-sm btn-warning"><i
-																class="fa fa-pencil"></i> Modifier</a>
-															<button type="button" class="btn btn-sm btn-danger"
-																data-toggle="modal" data-target="modalSupprimer">
-																<i class="fa fa-trash">Supprimer 
-															</button></td>
+														<td class="text-right">
+															<form action="edit-member">
+																<input type="hidden" name="memberId"
+																	value="${member.id}" /><input type="submit"
+																	class="btn btn-sm btn-warning" value="Modifier" />
+															</form>
+															<form action="delete-member">
+																<input type="hidden" name="memberId"
+																	value="${member.id}" /><input type="submit"
+																	class="btn btn-sm btn-warning" value="Supprimer" />
+															</form>
+														</td>
 													</tr>
 												</c:forEach>
-												<tr>
-													<td>NameSample</td>
-													<td>emailsample@e-biz.fr</td>
-													<td>birthdateSample</td>
-													<td class="text-right"><a href="#"
-														class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>
-															Modifier</a>
-														<button type="button" class="btn btn-sm btn-danger"
-															data-toggle="modal" data-target="modalSupprimer">
-															<i class="fa fa-trash">Supprimer 
-														</button></td>
-												</tr>
 											</tbody>
 										</table>
 										<div class="text-center">
@@ -243,7 +236,8 @@
 						<div class="panel-body">
 							<div class="list-group">
 
-								<c:forEach items="${promotions}" var="promotion" varStatus="loop">
+								<c:forEach items="${promotions}" var="promotion"
+									varStatus="loop">
 									<a href="#" class="list-group-item"> <i
 										class="fa fa-users fa-fw"></i> ${promotion.name}<span
 										class="pull-right text-muted small"><em>${numberMembersPromotion[loop.index]}

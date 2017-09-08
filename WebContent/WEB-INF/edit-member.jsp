@@ -76,22 +76,22 @@
                                     <form action="edit-member" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input name = "name" type="text" class="input-lg form-control" id="name" placeholder="${member.name}">
+                                            <input name = "name" type="text" class="input-lg form-control" id="name" value="${member.name}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Adresse Email</label>
-                                            <input name = "email" type="email" class="input-lg form-control" id="email" placeholder="${member.email}">
+                                            <input name = "email" type="email" class="input-lg form-control" id="email" value="${member.email}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="birthdate">Date d'anniversaire</label>
-                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" placeholder="${member.birthdate}">
+                                            <label for="birthdate" >Date d'anniversaire</label>
+                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" value="${member.birthdate}">
                                         </div>
                                         <input type="hidden" name="memberId" value="${member.id}" />
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select name = "promotion" class="input-lg form-control" id="promotion">
                                                 <c:forEach items="${promotions}" var="promotion">
-														<option value="${promotion}" ${promotion == member.promotion ? 'selected' : ''}>${promotion.name}</option>
+														<option value="${promotion.name}" ${promotion.name == member.promotion.name ? 'selected' : ''}>${promotion.name}</option>
 												</c:forEach>
                                             </select>
                                         </div>
