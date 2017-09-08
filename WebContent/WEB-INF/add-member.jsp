@@ -51,7 +51,7 @@ href="bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css"
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown"><a class="dropdown-toggle navlink"
 					data-toggle="dropdown" href="#"> <i class="fa fa-gear fa-fw"></i>
-						GÃ©rer les code reviews <i class="fa fa-caret-down"></i>
+						Gérer les code reviews <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
 						<li><a href="add-promotion"><i class="fa fa-users fa-fw"></i>
@@ -59,7 +59,7 @@ href="bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css"
 						<li><a href="add-member"><i class="fa fa-user fa-fw"></i>
 								Ajouter un membre</a></li>
 						<li><a href="add-code-review"><i
-								class="fa fa-calendar fa-fw"></i> CrÃ©er un rendez-vous</a></li>
+								class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a></li>
 					</ul></li>
 			</ul>
 		</nav>

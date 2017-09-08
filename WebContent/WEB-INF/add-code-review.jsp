@@ -2,8 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,12 +24,10 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css"> -->
-<link rel="stylesheet"
-	href="bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
+
 <body>
 
 	<div id="wrapper">
@@ -140,10 +136,6 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="bower_components/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript"
 		src="bower_components/moment/min/moment.min.js"></script>
 		<script type="text/javascript"
