@@ -22,6 +22,9 @@
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		href="bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 
 <body>
@@ -84,7 +87,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="birthdate">Date d'anniversaire</label>
-                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" placeholder="Date d'anniversaire">
+                                            <input id='datepicker' name = "birthdate" type="text" class="input-lg form-control" id="birthdate" placeholder="Date d'anniversaire">
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
@@ -128,6 +131,21 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    
+    	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('#datepicker').datetimepicker();
+		});
+	</script>
 
 </body>
 

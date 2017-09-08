@@ -26,19 +26,11 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
-<!-- <link rel="stylesheet"
-	href="WebContent/bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css"> -->
 <link rel="stylesheet"
-	href="WebContent/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-<script type="text/javascript"
-	src="WebContent/bower_components/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript"
-	src="WebContent/bower_components/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="WebContent/bower_components/moment/min/moment.min.js"></script>
-<script type="text/javascript"
-	src="WebContent/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>-->
+	href="bower_components/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 <body>
 
@@ -101,14 +93,9 @@
 										</div>
 										<div class="form-group">
 											<label for="date">Date</label> <input type='text' name="date"
-												id='datetimepicker1' class="input-lg form-control"
+												id='datepicker' class="input-lg form-control"
 												placeholder="Date de l'évènement" /> 
 										</div>
-										<script type="text/javascript">
-										$( function() {
-										    $( "#datepicker" ).datepicker();
-										  } );
-										</script>
 										<div class="form-group">
 											<label for="promotion">Promotion</label> <select name="promotion"
 												class="input-lg form-control" id="promotion">
@@ -152,8 +139,20 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
-	
-	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('#datepicker').datetimepicker();
+		});
+	</script>
 
 </body>
 
