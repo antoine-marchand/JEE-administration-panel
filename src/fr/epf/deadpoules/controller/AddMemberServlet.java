@@ -48,9 +48,9 @@ public class AddMemberServlet extends HttpServlet {
 	private Member parseMember(HttpServletRequest req) {
 		
 		String param = req.getParameter("birthdate");
-		DateTimeFormatter date = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate birthdate;
-		birthdate = LocalDate.parse(param, date);
+		birthdate = LocalDate.parse(param, format);
 		
 		
 		Long promParam = Long.valueOf(req.getParameter("promotion"));
