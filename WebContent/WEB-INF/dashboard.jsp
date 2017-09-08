@@ -242,7 +242,7 @@
 								<c:forEach items="${promotions}" var="promotion">
 									<a href="#" class="list-group-item"> <i
 										class="fa fa-users fa-fw"></i> ${promotion.name}<span
-										class="pull-right text-muted small"><em>${fn:length(promotion.members)}</em>
+										class="pull-right text-muted small"><em>${fn:length(promotion.members)} membres</em>
 									</span>
 									</a>
 								</c:forEach>
