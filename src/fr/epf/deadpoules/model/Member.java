@@ -7,27 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Past;
-
-import com.sun.istack.internal.NotNull;
 
 @Entity
 public class Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@NotNull
 	private String name;
-	
-	@NotNull
 	private String email;
-	
-	@Past
-	@NotNull
 	private LocalDate birthdate;
 
-	@NotNull
 	@ManyToOne
 	private Promotion promotion;
 

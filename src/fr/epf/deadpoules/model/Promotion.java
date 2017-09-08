@@ -8,16 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.sun.istack.internal.NotNull;
-
 @Entity
 public class Promotion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@NotNull
 	private String name;
 	
 	@OneToMany(mappedBy="promotion")
