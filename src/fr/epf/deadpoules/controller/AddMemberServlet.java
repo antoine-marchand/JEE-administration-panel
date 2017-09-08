@@ -1,11 +1,8 @@
 package fr.epf.deadpoules.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-//import java.text.ParseException;
-//import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -31,7 +28,7 @@ public class AddMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 
-//		request.getSession().setAttribute("promotions", promotionDao.findAll());
+		request.getSession().setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
 		
 
@@ -52,21 +49,15 @@ public class AddMemberServlet extends HttpServlet {
 	private Member parseMember(HttpServletRequest req) {
 		
 		String param = req.getParameter("birthdate");
-		SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
-		Date birthdate = new Date();
-	
-//		Utilisez LocalDate
+		DateTimeFormatter date = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate birthdate;
+		birthdate = LocalDate.parse(param, date);
 		
-		try {
-			birthdate = date.parse(param);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 		
-		String promParam = req.getParameter("promotion");
-		Promotion promotion = promotionDao.findByName(promParam);
+		Long promParam = Long.valueOf(req.getParameter("promotion"));
+		Promotion promotion = promotionDao.findOne(promParam);
 				
-		return new Member(req.getParameter("name"), req.getParameter("email"), new Date(444), promotion);
+		return new Member(req.getParameter("name"), req.getParameter("email"), birthdate, promotion);
 	}
 
 }
