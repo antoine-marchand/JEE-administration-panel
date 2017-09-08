@@ -43,7 +43,7 @@ public class AddCodeReviewServlet extends HttpServlet {
 	private CodeReview parseCodeReview(HttpServletRequest req) {
 		
 		String param = req.getParameter("date");
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 		LocalDate date;
 		date = LocalDate.parse(param, format);
 		
