@@ -174,7 +174,8 @@
 															<form action="delete-member">
 																<input type="hidden" name="memberId"
 																	value="${member.id}" /><input type="submit"
-																	class="btn btn-sm btn-warning" value="Supprimer" />
+																	class="btn btn-sm btn-danger" data-toggle="modal"
+																	data-target="modalSupprimer" value="Supprimer" />
 															</form>
 														</td>
 													</tr>
