@@ -88,17 +88,18 @@
 										</div>
 										<div class="form-group">
 											<label for="description">Description</label> <input
-												type="text" class="input-lg form-control" id="description" name="description"
-												placeholder="Description">
+												type="text" class="input-lg form-control" id="description"
+												name="description" placeholder="Description">
 										</div>
 										<div class="form-group">
 											<label for="date">Date</label> <input type='text' name="date"
 												id='datepicker' class="input-lg form-control"
-												placeholder="Date de l'évènement" /> 
+												placeholder="Date de l'évènement" />
 										</div>
 										<div class="form-group">
-											<label for="promotion">Promotion</label> <select name="promotion"
-												class="input-lg form-control" id="promotion">
+											<label for="promotion">Promotion</label> <select
+												name="promotion" class="input-lg form-control"
+												id="promotion">
 												<c:forEach items="${promotions}" var="promotion">
 													<option>${promotion.name}</option>
 												</c:forEach>
@@ -145,12 +146,19 @@
 		src="bower_components/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript"
 		src="bower_components/moment/min/moment.min.js"></script>
+		<script type="text/javascript"
+		src="bower_components/moment/min/moment-with-locales.js"></script>
 	<script type="text/javascript"
 		src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	
 
+moment-with-locales.js
 	<script type="text/javascript">
 		$(function() {
-			$('#datepicker').datetimepicker();
+			$('#datepicker').datetimepicker(
+					{
+						locale: 'fr'
+					});
 		});
 	</script>
 
