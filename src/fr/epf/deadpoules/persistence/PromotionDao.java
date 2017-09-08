@@ -8,6 +8,7 @@ import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.epf.deadpoules.model.Member;
 import fr.epf.deadpoules.model.Promotion;
 
 @Singleton
@@ -18,6 +19,10 @@ public class PromotionDao {
 
 	public void save(Promotion u) {
 		em.persist(u);
+	}
+	
+	public Promotion update (Promotion updatePromotion) {
+	    return em.merge(updatePromotion);
 	}
 
 	public Promotion findOne(Long id) {

@@ -38,10 +38,13 @@ public class AddMemberServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Member member = parseMember(request);
-
+		member.getPromotion().incrementNumMembers();
+		
+		
 		request.getSession().setAttribute("member", member);
 
 		memberDao.save(member);
+		promotionDao.update(member.getPromotion());
 		response.sendRedirect("dashboard");
 	}
 

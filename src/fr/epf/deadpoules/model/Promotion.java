@@ -70,6 +70,14 @@ public class Promotion {
 	public int getNumMembers() {
 		return numMembers;
 	}
+	
+	public void incrementNumMembers() {
+		numMembers++;
+	}
+	
+	public void decrementNumMembers() {
+		numMembers++;
+	}
 
 	public void setNumMembers(int numMembers) {
 		this.numMembers = numMembers;
