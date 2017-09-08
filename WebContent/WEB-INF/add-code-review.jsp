@@ -77,7 +77,8 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-xs-12">
-									<form action="add-code-review" method="post" class="">
+									<form action="add-code-review" method="post" class=""
+										id="add-code-review-form">
 										<div class="form-group">
 											<label for="name">Nom</label> <input type="text" name="name"
 												class="input-lg form-control" id="name" placeholder="Nom">
@@ -133,25 +134,47 @@
 
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"
 		src="bower_components/moment/min/moment.min.js"></script>
-		<script type="text/javascript"
+	<script type="text/javascript"
 		src="bower_components/moment/min/moment-with-locales.js"></script>
 	<script type="text/javascript"
 		src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-	
 
-moment-with-locales.js
 	<script type="text/javascript">
 		$(function() {
-			$('#datepicker').datetimepicker(
-					{
-						locale: 'fr'
-					});
+			$('#datepicker').datetimepicker({
+				locale : 'fr'
+			});
 		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			   jQuery("#add-code-review-form").validate({
+				      rules: {
+				         "nom":{
+				            "required": true,
+				            "minlength": 2,
+				            "maxlength": 255
+				         },
+				         "description": {
+					        "required": true,
+				            "minlength": 2,
+				            "maxlength": 255,
+				         },
+				         "datepicker": {
+				            "required": true
+				         },
+				         "promotion": {
+				        	"required": true 
+				         }
+				  }})
+				});
 	</script>
 
 </body>
