@@ -207,15 +207,22 @@
 						</div>
 						<div class="panel-body">
 							<table class="table table-striped">
-
-								<c:forEach items="${codeReviews}" var="codeReview">
+								<thead>
 									<tr>
-										<td>${codeReview.name}</td>
-										<td>${codeReview.description}</td>
-										<td class="text-right"><span class="text-muted small">${codeReview.datetime}</span></td>
+										<th>Sujet</th>
+										<th>Desciption</th>
+										<th class="text-right">Date</th>
 									</tr>
-								</c:forEach>
-
+								</thead>
+								<tbody>
+									<c:forEach items="${codeReviews}" var="codeReview">
+										<tr>
+											<td>${codeReview.name}</td>
+											<td>${codeReview.description}</td>
+											<td class="text-right"><span class="text-muted small">${codeReview.datetime}</span></td>
+										</tr>
+									</c:forEach>
+								</tbody>
 								<tr>
 									<td>Code review 1</td>
 									<td>Date sample</td>
