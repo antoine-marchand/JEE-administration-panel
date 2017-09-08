@@ -45,7 +45,7 @@
 						Gérer les code reviews <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="add_promotion"><i class="fa fa-users fa-fw"></i>
+						<li><a href="add-promotion"><i class="fa fa-users fa-fw"></i>
 								Ajouter une promotion</a></li>
 						<li><a href="add-member"><i class="fa fa-user fa-fw"></i>
 								Ajouter un membre</a></li>
