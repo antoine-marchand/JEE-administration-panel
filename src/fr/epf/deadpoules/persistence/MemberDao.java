@@ -1,8 +1,5 @@
 package fr.epf.deadpoules.persistence;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Singleton;
@@ -11,13 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.epf.deadpoules.model.Member;
-import fr.epf.deadpoules.model.Promotion;
 
 @Singleton
 public class MemberDao {
-
-	@Inject
-	private PromotionDao promotionDao;
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -43,7 +36,7 @@ public class MemberDao {
 	    return em.merge(updateMember);
 	}
 	
-	public void delete (Member updateMember) {
-	    em.remove(updateMember);
+	public void delete (Member deleteMember) {
+	    em.remove(em.merge(deleteMember));
 	}
 }

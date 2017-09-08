@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.epf.deadpoules.model.Member;
 import fr.epf.deadpoules.persistence.MemberDao;
 
-@WebServlet("/DeleteMemberServlet")
+@WebServlet("/delete-member")
 public class DeleteMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,6 +23,7 @@ public class DeleteMemberServlet extends HttpServlet {
 		
 		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member deleteMember = memberDao.findOne(memberId);
+
 		memberDao.delete(deleteMember);
 		
 		response.sendRedirect("dashboard");

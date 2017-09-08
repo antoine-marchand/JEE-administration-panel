@@ -22,6 +22,8 @@
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+	href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 
 <body>
@@ -84,7 +86,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="birthdate" >Date d'anniversaire</label>
-                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" value="${member.birthdate}">
+                                            <input id="datepicker" name = "birthdate" type="text" class="input-lg form-control" value="${member.birthdate}" placeholder="${member.birthdate}">
                                         </div>
                                         <input type="hidden" name="memberId" value="${member.id}" />
                                         <div class="form-group">
@@ -130,6 +132,22 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+		<script type="text/javascript"
+		src="bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript"
+		src="bower_components/moment/min/moment-with-locales.js"></script>
+	<script type="text/javascript"
+		src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('#datepicker').datetimepicker({
+				format : "DD/MM/YYYY",
+				locale : 'fr'
+			});
+		});
+	</script>
+	
 </body>
 
 </html>

@@ -47,30 +47,23 @@ public class EditMemberServlet extends HttpServlet {
 
 	private Member editMember(HttpServletRequest request) {
 		
-		System.out.println("0");
-
 		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member oldMember = memberDao.findOne(memberId);
-		System.out.println("1");
+
 		oldMember.setName(request.getParameter("name"));
 		oldMember.setEmail(request.getParameter("email"));
-		System.out.println("2");
 
 		String param = request.getParameter("birthdate");
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate birthdate;
 		birthdate = LocalDate.parse(param, format);
-		System.out.println("3");
 
 		oldMember.setBirthdate(birthdate);
 		
 		Promotion promotion = promotionDao.findByName(String.valueOf(request.getParameter("promotion")));
-		System.out.println("4");
 
 		oldMember.setPromotion(promotion);
-		
-		System.out.println(oldMember);
-		
+				
 		return oldMember;
 	}
 	
