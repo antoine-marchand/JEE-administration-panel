@@ -84,7 +84,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="birthdate">Date d'anniversaire</label>
-                                            <input name = "birthdate" type="text" class="input-lg form-control" id="birthdate" placeholder="Date d'anniversaire">
+                                            <input name = "birthdate" type="date" class="input-lg form-control" id="birthdate" placeholder="Date d'anniversaire">
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
