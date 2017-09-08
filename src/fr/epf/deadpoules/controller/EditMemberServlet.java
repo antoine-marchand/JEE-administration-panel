@@ -32,14 +32,13 @@ public class EditMemberServlet extends HttpServlet {
 		Long memberId = Long.valueOf(request.getParameter("id"));
 		request.setAttribute("member", memberDao.findOne(memberId));
 		request.setAttribute("promotions", promotionDao.findAll());
-
+		
 		request.getRequestDispatcher("WEB-INF/edit-member.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		editMember(request);
-		
 		response.sendRedirect("dashboard");
 		
 	}
@@ -47,21 +46,25 @@ public class EditMemberServlet extends HttpServlet {
 	private void editMember(HttpServletRequest request) {
 		
 		Long memberId = Long.valueOf(request.getParameter("member.id"));
-
-//		choper l'id 
-//		update avec 
 		Member oldMember = memberDao.findOne(memberId);
 		
+		oldMember.setName(request.getParameter("member.name"));
+		oldMember.setEmail(request.getParameter("member.email"));
 		
-		String param = request.getParameter("birthdate");
+		String param = request.getParameter("member.birthdate");
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate birthdate;
 		birthdate = LocalDate.parse(param, format);
 		
+		oldMember.setBirthdate(birthdate);
 		
-		Long promParam = Long.valueOf(request.getParameter("promotion"));
+		
+//		Va changer avec findByName
+		Long promParam = Long.valueOf(request.getParameter("member.promotion"));
 		Promotion promotion = promotionDao.findOne(promParam);
-								
+//		!!
+		
+		oldMember.setPromotion(promotion);	
 	}
 	
 }
