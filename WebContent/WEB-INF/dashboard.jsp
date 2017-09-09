@@ -155,38 +155,35 @@
 												<tr>
 													<th>Nom</th>
 													<th>Email</th>
-													<th>Birthdate</th>
+													<th>Date d'anniversaire</th>
 													<th class="text-right">Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${members}" var="member">
+												<c:forEach var="member" items="${displayedMembers}">
 													<tr>
-														<td>${member.name}</td>
-														<td>${member.email}</td>
-														<td>${member.birthdate}</td>
-														<td class="text-right">
-															<form action="edit-member">
-																<input type="hidden" name="memberId"
-																	value="${member.id}" /><input type="submit"
-																	class="btn btn-sm btn-warning" value="Modifier" />
-															</form>
-															<form action="delete-member">
-																<input type="hidden" name="memberId"
-																	value="${member.id}" /><input type="submit"
-																	class="btn btn-sm btn-danger" data-toggle="modal"
-																	data-target="modalSupprimer" value="Supprimer" />
-															</form>
-														</td>
+														<td><c:out value="${member.name}" /></td>
+														<td><c:out value="${member.email}" /></td>
+														<td><c:out value="${member.birthdate}" /></td>
+														<td class="text-right"><a
+															href="/JEE-administration-panel/edit-member?id=${member.id}"
+															class="btn btn-sm btn-warning"> <i
+																class="fa fa-pencil"></i> Modifier
+														</a> <a
+															href="/JEE-administration-panel/delete-member?id=${member.id}"
+															class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i>
+																Supprimer
+														</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
 										<div class="text-center">
 											<ul class="pagination">
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
+												<c:forEach var="page" items="${pages}">
+													<li><a href="/JEE-administration-panel/dashboard?pageNumber=${page}">${page}</a></li>
+												</c:forEach>
+
 											</ul>
 										</div>
 									</div>
