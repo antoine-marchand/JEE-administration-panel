@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.epf.deadpoules.model.Member;
 import fr.epf.deadpoules.persistence.MemberDao;
+import fr.epf.deadpoules.persistence.PromotionDao;
 
 @WebServlet("/delete-member")
 public class DeleteMemberServlet extends HttpServlet {
@@ -19,11 +20,15 @@ public class DeleteMemberServlet extends HttpServlet {
 	@Inject
 	private MemberDao memberDao;
 	
+	@Inject
+	private PromotionDao promotionDao;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member deleteMember = memberDao.findOne(memberId);
-
+		deleteMember.getPromotion().incrementNumMembers();
+		promotionDao.update(deleteMember.getPromotion());
 		memberDao.delete(deleteMember);
 		
 		response.sendRedirect("dashboard");
