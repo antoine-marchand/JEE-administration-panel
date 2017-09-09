@@ -19,46 +19,51 @@ import fr.epf.deadpoules.model.Promotion;
 @WebServlet("/add-member")
 public class AddMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+
 	@Inject
 	private MemberDao memberDao;
-	
+
 	@Inject
 	private PromotionDao promotionDao;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setAttribute("promotions", promotionDao.findAll());
 		request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
 
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Member member = parseMember(request);
-		member.getPromotion().incrementNumMembers();
-		
-		
-		request.getSession().setAttribute("member", member);
+		if (memberDao.memberExist(request.getParameter("name"))) {
 
-		memberDao.save(member);
-		promotionDao.update(member.getPromotion());
-		response.sendRedirect("dashboard");
+			Member member = parseMember(request);
+			member.getPromotion().incrementNumMembers();
+			memberDao.save(member);
+			promotionDao.update(member.getPromotion());
+			response.sendRedirect("dashboard");
+
+		} else {
+
+			request.setAttribute("message", "Ce nom est déjà utilisé");
+			request.setAttribute("promotions", promotionDao.findAll());
+			request.getRequestDispatcher("WEB-INF/add-member.jsp").forward(request, response);
+		}
+
 	}
 
 	private Member parseMember(HttpServletRequest req) {
-		
+
 		String param = req.getParameter("birthdate");
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate birthdate;
 		birthdate = LocalDate.parse(param, format);
-		
+
 		Promotion promotion = promotionDao.findByName(String.valueOf(req.getParameter("promotion")));
-//		Long promParam = Long.valueOf(req.getParameter("promotion"));
-//		Promotion promotion = promotionDao.findOne(promParam);
-				
+
 		return new Member(req.getParameter("name"), req.getParameter("email"), birthdate, promotion);
 	}
 

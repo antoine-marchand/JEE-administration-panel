@@ -70,6 +70,9 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-xs-12">
+									<c:if test="${message != null}">
+										<h3>${message}</h3>
+									</c:if>
 									<form action="add-promotion" method="post" class="">
 										<div class="form-group">
 											<label for="name">Nom</label> <input type="text"

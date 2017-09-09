@@ -26,12 +26,19 @@ public class AddPromotionServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Promotion p = parsePromotion(request);
+		
+		if(promotionDao.promotionExist(request.getParameter("name"))) {
+			Promotion p = parsePromotion(request);
+			request.getSession().setAttribute("promotion", p);
+			promotionDao.save(p);
+			response.sendRedirect("dashboard");
+		}else{
+			request.setAttribute("message", "Ce nom est déjà utilisé");
+			request.getRequestDispatcher("WEB-INF/add-promotion.jsp").forward(request, response);	
+		}
 
-		request.getSession().setAttribute("promotion", p);
-
-		promotionDao.save(p);
-		response.sendRedirect("dashboard");
+		
+		
 	}
 	
 	private Promotion parsePromotion (HttpServletRequest req) {

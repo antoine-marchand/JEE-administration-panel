@@ -32,6 +32,17 @@ public class PromotionDao {
 	public Promotion findByName(String name) {
 		return (Promotion)em.createQuery("FROM Promotion WHERE name='" + name + "'").getResultList().get(0);
 	}
+	
+	public boolean promotionExist(String name) {
+		List<Promotion> promotionList = em.createQuery("FROM Member WHERE name='" + name + "'").getResultList();
+		boolean exist;
+		if (promotionList.isEmpty()) {
+			exist = true;
+		}else {
+			exist = false;
+		}
+		return exist;
+	}
 
 	public long count() {
 	 return (long)em.createQuery("SELECT COUNT(*) FROM Promotion").getSingleResult();
