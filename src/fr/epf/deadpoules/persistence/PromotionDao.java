@@ -49,18 +49,7 @@ public class PromotionDao {
 	}
 
 	public List<Promotion> findAll() {
-		List<Promotion> promotions = new ArrayList<>();
-		List<Object> result = (List<Object>) em.createQuery("SELECT id,name FROM Promotion").getResultList();
-		Iterator itr = result.iterator();
-
-		while (itr.hasNext()) {
-			Object[] obj = (Object[]) itr.next();
-			Long id = Long.parseLong(String.valueOf(obj[0]));
-			String name = String.valueOf(obj[1]);
-			promotions.add(new Promotion(name));
-		}
-
-		return promotions;
+		return em.createQuery("FROM Promotion").getResultList();
 	}
 
 }
