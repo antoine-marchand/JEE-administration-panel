@@ -34,15 +34,16 @@ public class DashboardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setAttribute("members", memberDao.findAll());
+		List<Member> memberList = memberDao.findAll();
+
+		request.setAttribute("members", memberList);
 		request.setAttribute("numberMembers", memberDao.count());
 		request.setAttribute("promotions", promotionDao.findAll());
 		request.setAttribute("numberPromotions", promotionDao.count());
-		request.setAttribute("codeReviews",codeReviewDao.findAll());
+		request.setAttribute("codeReviews", codeReviewDao.findAll());
 		request.setAttribute("numberCodeReviews", codeReviewDao.count());
 
-		
-		//PAGINATION
+		// PAGINATION
 		int maxEntriesPerPage = 5;
 		int page = 1;
 
@@ -57,9 +58,7 @@ public class DashboardServlet extends HttpServlet {
 			}
 		}
 		int offset = maxEntriesPerPage * (page - 1);
-		
-		List<Member>memberList = memberDao.findAll();
-		
+
 		HttpSession httpSession = request.getSession();
 		httpSession.setAttribute("pages", getPages(memberList, maxEntriesPerPage));
 		httpSession.setAttribute("displayedMembers", getListByOffsetAndLength(offset, maxEntriesPerPage, memberList));

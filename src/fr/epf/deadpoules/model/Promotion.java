@@ -72,11 +72,11 @@ public class Promotion {
 	}
 	
 	public void incrementNumMembers() {
-		numMembers++;
+		this.numMembers++;
 	}
 	
 	public void decrementNumMembers() {
-		numMembers++;
+		this.numMembers--;
 	}
 
 	public void setNumMembers(int numMembers) {

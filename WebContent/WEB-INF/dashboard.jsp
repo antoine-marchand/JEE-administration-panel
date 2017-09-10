@@ -181,7 +181,8 @@
 										<div class="text-center">
 											<ul class="pagination">
 												<c:forEach var="page" items="${pages}">
-													<li><a href="/JEE-administration-panel/dashboard?pageNumber=${page}">${page}</a></li>
+													<li><a
+														href="/JEE-administration-panel/dashboard?pageNumber=${page}">${page}</a></li>
 												</c:forEach>
 
 											</ul>
@@ -239,9 +240,10 @@
 								<c:forEach items="${promotions}" var="promotion"
 									varStatus="loop">
 									<a href="#" class="list-group-item"> <i
-										class="fa fa-users fa-fw"></i> ${promotion.name}<span
-										class="pull-right text-muted small"><em>${promotion.numMembers}
-												membres</em> </span>
+										class="fa fa-users fa-fw"></i> ${promotion.name} <span
+										class="pull-right text-muted small"> <em>${promotion.numMembers}
+												membres</em>
+									</span>
 									</a>
 								</c:forEach>
 							</div>
