@@ -90,7 +90,7 @@
 										</div>
 										<div class="form-group">
 											<label for="date">Date</label> <input type='text' name="date"
-												id='datepicker' class="input-lg form-control"
+												id="datepicker" class="input-lg form-control"
 												placeholder="Date de l'évènement" />
 										</div>
 										<div class="form-group">
@@ -155,26 +155,27 @@
 
 	<script>
 		$(document).ready(function() {
-			   jQuery("#add-code-review-form").validate({
-				      rules: {
-				         "nom":{
-				            "required": true,
-				            "minlength": 2,
-				            "maxlength": 255
-				         },
-				         "description": {
-					        "required": true,
-				            "minlength": 2,
-				            "maxlength": 255,
-				         },
-				         "datepicker": {
-				            "required": true
-				         },
-				         "promotion": {
-				        	"required": true 
-				         }
-				  }})
-				});
+			jQuery("#add-code-review-form").validate({
+				rules : {
+					"name" : {
+						"required" : true,
+						"minlength" : 2,
+						"maxlength" : 255
+					},
+					"description" : {
+						"required" : true,
+						"minlength" : 2,
+						"maxlength" : 255,
+					},
+					"date" : {
+						"required" : true
+					},
+					"promotion" : {
+						"required" : true
+					}
+				}
+			})
+		});
 	</script>
 
 </body>

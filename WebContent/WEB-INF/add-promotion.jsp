@@ -73,7 +73,8 @@
 									<c:if test="${message != null}">
 										<h3>${message}</h3>
 									</c:if>
-									<form action="add-promotion" method="post" class="">
+									<form action="add-promotion" method="post" class=""
+										id="add-promotion-form">
 										<div class="form-group">
 											<label for="name">Nom</label> <input type="text"
 												class="input-lg form-control" id="name" name="name"
@@ -111,9 +112,24 @@
 
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			jQuery("#add-promotion-form").validate({
+				rules : {
+					"name" : {
+						"required" : true,
+						"minlength" : 2,
+						"maxlength" : 255
+					}
+				}
+			})
+		});
+	</script>
 
 </body>
 

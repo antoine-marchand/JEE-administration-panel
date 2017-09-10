@@ -80,8 +80,8 @@
 									<c:if test="${message != null}">
 										<h3>${message}</h3>
 									</c:if>
-								
-									<form action="add-member" method="post" class="">
+
+									<form action="add-member" method="post" class="" id="add-member-form">
 										<div class="form-group">
 											<label for="name">Nom</label> <input name="name" type="text"
 												class="input-lg form-control" id="name" placeholder="Nom">
@@ -93,11 +93,11 @@
 										</div>
 										<div class="form-group">
 											<label for="birthdate">Date d'anniversaire</label> <input
-												id='datepicker' name="birthdate" type="text"
+												id="datepicker" name="birthdate" type="text"
 												class="input-lg form-control" id="birthdate"
 												placeholder="Date d'anniversaire">
 										</div>
-										<div class="form-group">
+										<div class="form-groSup">
 											<label for="promotion">Promotion</label> <select
 												name="promotion" class="input-lg form-control"
 												id="promotion">
@@ -138,6 +138,7 @@
 
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
@@ -157,8 +158,33 @@
 			});
 		});
 	</script>
-
 	
+	<script>
+		$(document).ready(function() {
+			jQuery("#add-member-form").validate({
+				rules : {
+					"name" : {
+						"required" : true,
+						"minlength" : 2,
+						"maxlength" : 255
+					},
+					"email" : {
+						"required" : true,
+						"minlength" : 2,
+						"maxlength" : 255,
+					},
+					"birthdate" : {
+						"required" : true
+					},
+					"promotion" : {
+						"required" : true
+					}
+				}
+			})
+		});
+	</script>
+
+
 </body>
 
 </html>
