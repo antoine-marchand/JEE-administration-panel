@@ -82,7 +82,7 @@ public class DashboardServlet extends HttpServlet {
 	public ArrayList<Member> getListByOffsetAndLength(int offset, int maxEntriesPerPage, List<Member> orginialList) {
 		ArrayList<Member> displayedList = new ArrayList<>();
 		int lastElementIndex = offset + maxEntriesPerPage;
-		if (offset >= orginialList.size())
+		if (offset > orginialList.size())
 			offset = orginialList.size() - maxEntriesPerPage;
 		if (lastElementIndex > orginialList.size())
 			lastElementIndex = orginialList.size();
