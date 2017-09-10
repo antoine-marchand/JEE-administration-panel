@@ -45,6 +45,7 @@ public class AddMemberServlet extends HttpServlet {
 			member.getPromotion().incrementNumMembers();
 			memberDao.save(member);
 			promotionDao.update(member.getPromotion());
+			request.setAttribute("promotion", promotionDao.findAll());
 			response.sendRedirect("dashboard");
 
 		} else {

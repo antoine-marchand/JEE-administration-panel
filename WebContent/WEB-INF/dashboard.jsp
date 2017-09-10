@@ -207,7 +207,7 @@
 								<thead>
 									<tr>
 										<th>Sujet</th>
-										<th>Desciption</th>
+										<th>Description</th>
 										<th class="text-right">Date</th>
 									</tr>
 								</thead>

@@ -27,10 +27,10 @@ public class DeleteMemberServlet extends HttpServlet {
 		
 		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member deleteMember = memberDao.findOne(memberId);
-		deleteMember.getPromotion().incrementNumMembers();
+		deleteMember.getPromotion().decrementNumMembers();
 		promotionDao.update(deleteMember.getPromotion());
 		memberDao.delete(deleteMember);
-		
+		request.setAttribute("promotions", promotionDao.findAll());
 		response.sendRedirect("dashboard");
 	}
 
