@@ -166,11 +166,11 @@
 														<td><c:out value="${member.email}" /></td>
 														<td><c:out value="${member.birthdate}" /></td>
 														<td class="text-right"><a
-															href="/JEE-administration-panel/edit-member?id=${member.id}"
+															href="/JEE-administration-panel/edit-member?memberId=${member.id}"
 															class="btn btn-sm btn-warning"> <i
 																class="fa fa-pencil"></i> Modifier
 														</a> <a
-															href="/JEE-administration-panel/delete-member?id=${member.id}"
+															href="/JEE-administration-panel/delete-member?memberId=${member.id}"
 															class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i>
 																Supprimer
 														</a></td>
