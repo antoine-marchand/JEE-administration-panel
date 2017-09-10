@@ -1,5 +1,13 @@
 # JEE-administration-panel
 
-https://resourcepool.io/fr/2014/09/07/java-university-organize-your-code/
+Projet dans le cadre du cours Java EE. Le sujet est proposé par eBusiness - Voir lien ci-dessous. 
+https://github.com/resourcepool/training-welcomepool
 
-https://github.com/loiccortola/training-jee-university
+## Environnement
+
+### Mysql
+Installer un serveur Mysql local et créer une BDD pour le projet.
+
+### Eclipse + WildFly
+Utiliser WildFly pour la connection à la BDD Mysql.
+Utiliser Eclipse pour lancer le projet.
