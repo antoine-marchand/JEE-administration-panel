@@ -16,15 +16,16 @@ import fr.epf.deadpoules.persistence.PromotionDao;
 @WebServlet("/delete-member")
 public class DeleteMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	@Inject
 	private MemberDao memberDao;
-	
+
 	@Inject
 	private PromotionDao promotionDao;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Long memberId = Long.valueOf(request.getParameter("memberId"));
 		Member deleteMember = memberDao.findOne(memberId);
 		deleteMember.getPromotion().decrementNumMembers();

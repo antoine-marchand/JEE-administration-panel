@@ -81,7 +81,8 @@
 										<h3>${message}</h3>
 									</c:if>
 
-									<form action="add-member" method="post" class="" id="add-member-form">
+									<form action="add-member" method="post" class=""
+										id="add-member-form">
 										<div class="form-group">
 											<label for="name">Nom</label> <input name="name" type="text"
 												class="input-lg form-control" id="name" placeholder="Nom">
@@ -158,7 +159,7 @@
 			});
 		});
 	</script>
-	
+
 	<script>
 		$(document).ready(function() {
 			jQuery("#add-member-form").validate({
